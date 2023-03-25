@@ -1,23 +1,47 @@
-function Form(){
+import { useState } from "react";
 
-    function cadastrarUsuario(e){
-        e.preventDefault();
-        console.log('Cadastrando...');
-    }
+function Form() {
+  function cadastrarUsuario(e) {
+    e.preventDefault();
+    console.log(`Usuário ${name} foi cadastrado com sucesso com a senha ${password}`);
+    console.log("Cadastrando...");
+  }
 
-    return (
+  const [name, setName] = useState("");
+  //const [name, setName] = useState("Luccas"); dessa forma eu poderia deixar setado o valor como "Luccas"
+  const [password, setPassword] = useState("");
+
+  return (
+    <div>
+      <h1>Meu Cadastro:</h1>
+      <form onSubmit={cadastrarUsuario}>
         <div>
-            <h1>Meu Cadastro:</h1>
-            <form onSubmit={cadastrarUsuario}>
-                <div>
-                    <input type="text" placeholder="Digite o seu nome"/>
-                </div>
-                <div>
-                    <input type="submit" value="Cadastrar"/>
-                </div>
-            </form>
+          <label htmlFor="name">Nome:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Digite o seu nome"
+            //value={name} o nome "Luccas" apareceria no meu form
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
-    )
+        <div>
+          <label htmlFor="password">Senha:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Digite sua senha"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div>
+          <input type="submit" value="Cadastrar" />
+        </div>
+      </form>
+    </div>
+  );
 }
 
 export default Form;
