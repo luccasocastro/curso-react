@@ -1,5 +1,5 @@
 import "./App.css";
-import Evento from "./components/Evento";
+import Evento from "./components/Evento.js";
 import Form from "./components/Form";
 
 function App() {
