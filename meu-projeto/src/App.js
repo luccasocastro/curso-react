@@ -2,7 +2,7 @@ import "./App.css";
 import HelloWorld from "./components/HelloWorld";
 
 function App() {
-  const name = "Matheus";
+  const name = "Luccas";
 
   function sum(a, b) {
     return a + b;
